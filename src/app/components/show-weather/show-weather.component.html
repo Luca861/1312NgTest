@@ -1,0 +1,12 @@
+<h1> Previsioni Meteo </h1>
+<div class="label-container">
+  <label class="my-1" for="selectedCity">Inserisci una città</label>
+  <input type="text" class="form-control" id="selectedCity" name="selectedCity" [(ngModel)]="selectedCity">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
+    <button class="btn btn-primary me-md-2" type="button" (click)='showCityWeather()'>Seleziona Città</button>
+</div>
+
+
+<div *ngIf="selectedCityWeather">
+  {{selectedCityWeather}}
+</div>
