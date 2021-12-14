@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPartialWeather } from 'src/app/shared/models/weather.model';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
 @Component({
@@ -8,8 +10,8 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
 })
 export class ShowWeatherComponent implements OnInit {
 
- selectedCity : string = '';
- selectedCityWeather : any;
+ selectedCity : string = 'Salerno';
+ selectedCityWeather$! : Observable<IPartialWeather>
 
 
   constructor(private readonly http:WeatherService) { }
@@ -18,13 +20,10 @@ export class ShowWeatherComponent implements OnInit {
   ngOnInit(): void {}
 
   showCityWeather(){
-    this.http.getCityWeatherByName(this.selectedCity).subscribe
-    (response => this.selectedCityWeather = response);
+    this.selectedCityWeather$ = this.http.getCityWeatherByName(this.selectedCity);
 
   }
 }
 
-  //   this.http.getCityWeatherByName(this.cityName).subscribe
-  // }
 
 

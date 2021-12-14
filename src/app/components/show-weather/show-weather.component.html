@@ -7,6 +7,11 @@
 </div>
 
 
-<div *ngIf="selectedCityWeather">
-  {{selectedCityWeather}}
+<div *ngIf="selectedCityWeather$ | async as detail">
+  <h2 class="text-center">{{detail.name}}</h2>
+  <div class="d-flex justify-content-center">
+    <h4 class="text-center">{{detail.dt}}°</h4>
+    <h4 class="text-center">{{detail.weatherDescription}}</h4>
+  <img src="http://openweathermap.org/img/wn/{{detail.icon}}.png">
+</div>
 </div>
