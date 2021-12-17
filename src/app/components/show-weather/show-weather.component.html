@@ -8,11 +8,10 @@
 
 
 <div *ngIf="selectedCityWeather$ | async as detail">
-  <h2 class="text-center">{{detail.name}}</h2>
+  <h2 class="text-center">{{detail.city}}</h2>
   <div class="d-flex justify-content-center">
-    <h3 class="text-center me-3">{{detail.temp}}<sup>°C</sup></h3>
+    <h3 class="text-center me-3">{{detail.temperature}}<sup>°C</sup></h3>
     <h4 class="text-center me-3">{{detail.description}}°</h4>
-    <h4 class="text-center me-3">{{detail.state}}</h4>
-  <img src="http://openweathermap.org/img/wn/{{detail.icon}}.png">
+<img src="http://openweathermap.org/img/wn/{{detail.icon}}.png">
 </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IPartialWeather, PartialWeather } from 'src/app/shared/models/weather.model';
+import { IPartialWeather} from 'src/app/shared/models/weather.model';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
 @Component({
@@ -11,17 +11,17 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
 export class ShowWeatherComponent implements OnInit {
 
  selectedCity : string = 'Salerno';
- selectedCityWeather$! : Observable<PartialWeather>
+ selectedCityWeather$! : Observable<IPartialWeather>
 
 
   constructor(private readonly http:WeatherService) { }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+}
 
   showCityWeather(){
-    this.selectedCityWeather$ = this.http.getCityWeatherByName(this.selectedCity);
-
+    this.selectedCityWeather$ = this.http.getCityWeatherByCoords(this.selectedCity)
   }
 }
 
