@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.openweathermap.org'
+  apiUrl: 'http://api.openweathermap.org',
+  tokenId: '51f71d7c995963ad8a76fecb16ed393b'
 };
 
 /*
